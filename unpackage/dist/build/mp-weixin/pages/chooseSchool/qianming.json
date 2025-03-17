@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "签名",
+  "usingComponents": {
+    "picker-color": "/components/helang-pickerColor/helang-pickerColor"
+  }
+}

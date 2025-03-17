@@ -1,0 +1,340 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/schooldetail",
+			"style": {
+				"navigationBarTitleText": "报名详情"
+			}
+		},
+		{
+			"path": "pages/index/cgschooldetail",
+			"style": {
+				"navigationBarTitleText": "报名详情"
+			}
+		},
+		{
+			"path": "pages/index/qrdingdan",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		},
+		{
+			"path": "pages/index/kaoshizl",
+			"style": {
+				"navigationBarTitleText": "考试资料"
+			}
+		},
+		{
+			"path": "pages/index/kscar",
+			"style": {
+				"navigationBarTitleText": "资料详情"
+			}
+		},
+		{
+			"path": "pages/index/zxddqr",
+			"style": {
+				"navigationBarTitleText": "咨询订单确认"
+			}
+		},
+		{
+			"path": "pages/index/bmxinxi",
+			"style": {
+				"navigationBarTitleText": "报名"
+			}
+		},
+		{
+			"path": "pages/index/jybmxinxi",
+			"style": {
+				"navigationBarTitleText": "报名"
+			}
+		},
+		{
+			"path": "pages/index/gaokaoguihua",
+			"style": {
+				"navigationBarTitleText": "开课信息"
+			}
+		},
+		{
+			"path": "pages/index/ghdetail",
+			"style": {
+				"navigationBarTitleText": "课程详情"
+			}
+		},
+		{
+			"path": "pages/index/wangke",
+			"style": {
+				"navigationBarTitleText": "网课学习"
+			}
+		},
+		{
+			"path": "pages/index/jmzf",
+			"style": {
+				"navigationBarTitleText": "支付"
+			}
+		},
+		{
+			"path": "pages/yikao/yikao",
+			"style": {
+				"navigationBarTitleText": "易考",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/kaquan",
+			"style": {
+				"navigationBarTitleText": "我的卡券"
+			}
+		},
+		{
+			"path": "pages/my/fwschooldetail",
+			"style": {
+				"navigationBarTitleText": "我的收藏"
+			}
+		},
+		{
+			"path": "pages/invoice/manage",
+			"style": {
+				"navigationBarTitleText": "发票管理"
+			}
+		},
+		{
+			"path": "pages/invoice/kpdingdan",
+			"style": {
+				"navigationBarTitleText": "开票订单"
+			}
+		},
+		{
+			"path": "pages/invoice/sqinvoice",
+			"style": {
+				"navigationBarTitleText": "开票信息"
+			}
+		},
+		{
+			"path": "pages/invoice/lookinvoice",
+			"style": {
+				"navigationBarTitleText": "开票信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/chooseSchool/chooseSchool",
+			"style": {
+				"navigationBarTitleText": "选择学校"
+			}
+		},
+		{
+			"path": "pages/chooseSchool/sc_file",
+			"style": {
+				"navigationBarTitleText": "上传简历"
+			}
+		},
+		{
+			"path": "pages/chooseSchool/fangwen",
+			"style": {
+				"navigationBarTitleText": "我的收藏"
+			}
+		},
+		{
+			"path": "pages/chooseSchool/qianming",
+			"style": {
+				"navigationBarTitleText": "签名"
+			}
+		},
+		{
+			"path": "pages/chooseSchool/goH5",
+			"style": {
+				"navigationBarTitleText": "人脸识别"
+			}
+		},
+		{
+			"path": "pages/chooseSchool/gokaike",
+			"style": {
+				"navigationBarTitleText": "开课信息"
+			}
+		},
+		{
+			"path": "pages/zigeChooseSchool/bmxinxi",
+			"style": {
+				"navigationBarTitleText": "报名信息"
+			}
+		},
+		{
+			"path": "pages/zigeChooseSchool/qrdingdan",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		},
+		{
+			"path": "pages/zigeChooseSchool/chooseSchool",
+			"style": {
+				"navigationBarTitleText": "选择学校"
+			}
+		},
+		{
+			"path": "pages/zigeChooseSchool/schooldetail",
+			"style": {
+				"navigationBarTitleText": "报名详情"
+			}
+		},
+		{
+			"path": "pages/my/dingdan",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
+		},
+		{
+			"path": "pages/my/baoming",
+			"style": {
+				"navigationBarTitleText": "我的报名"
+			}
+		},
+		{
+			"path": "pages/my/jiaofei",
+			"style": {
+				"navigationBarTitleText": "缴费记录明细"
+			}
+		},
+		{
+			"path": "pages/my/gkfangan",
+			"style": {
+				"navigationBarTitleText": "高考方案"
+			}
+		},
+		{
+			"path": "pages/my/news",
+			"style": {
+				"navigationBarTitleText": "我的消息"
+			}
+		},
+		{
+			"path": "pages/my/zsbutie",
+			"style": {
+				"navigationBarTitleText": "证书补贴"
+			}
+		},
+		{
+			"path": "pages/my/mytuifei",
+			"style": {
+				"navigationBarTitleText": "我的退费"
+			}
+		},
+		{
+			"path": "pages/my/mystudents",
+			"style": {
+				"navigationBarTitleText": "我的学员"
+			}
+		},
+		{
+			"path": "pages/my/moneydetails",
+			"style": {
+				"navigationBarTitleText": "提现记录"
+			}
+		},
+		{
+			"path": "pages/my/addus",
+			"style": {
+				"navigationBarTitleText": "加入我们"
+			}
+		},
+		{
+			"path": "pages/my/goAddus",
+			"style": {
+				"navigationBarTitleText": "立即申请"
+			}
+		},
+		{
+			"path": "pages/my/setting",
+			"style": {
+				"navigationBarTitleText": "个人信息"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/mychildren/dingdan_detail",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		},
+		{
+			"path": "pages/mychildren/shoukuan",
+			"style": {
+				"navigationBarTitleText": "收款信息"
+			}
+		},
+		{
+			"path": "pages/mychildren/tixian",
+			"style": {
+				"navigationBarTitleText": "提现"
+			}
+		},
+		{
+			"path": "pages/mychildren/myshouyi",
+			"style": {
+				"navigationBarTitleText": "收益详情"
+			}
+		},
+		{
+			"path": "pages/mychildren/usjieguo",
+			"style": {
+				"navigationBarTitleText": "立即申请"
+			}
+		},
+		{
+			"path": "pages/mychildren/gkfangan_detail",
+			"style": {
+				"navigationBarTitleText": "高考方案"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"color": "#333",
+		"selectedColor": "#2D9BFB",
+		"backgroundColor": "#eee",
+		"borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "/static/tab0.png",
+				"selectedIconPath": "/static/tab1.png"
+			},
+			{
+				"pagePath": "pages/yikao/yikao",
+				"text": "易考专区",
+				"iconPath": "/static/tab4.png",
+				"selectedIconPath": "/static/tab5.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "/static/tab2.png",
+				"selectedIconPath": "/static/tab3.png"
+			}
+		]
+	}
+}

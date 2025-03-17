@@ -1,0 +1,111 @@
+.yhList {
+  height: 81vh;
+  overflow: auto;
+  background-color: #f7f7f7;
+}
+.dingwei {
+  position: relative;
+}
+.dingwei .bluebottom {
+  position: absolute;
+  left: 62rpx;
+  bottom: 30rpx;
+  height: 5rpx;
+  background: linear-gradient(90deg, #2D9DFB 0%, rgba(45, 157, 251, 0) 100%);
+  border-radius: 3rpx;
+}
+.yhqbj {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.xztext {
+  background-color: #2D9DFB;
+  width: 60rpx;
+  line-height: 40rpx;
+  font-size: 22rpx;
+  color: #fff;
+  position: absolute;
+  left: 3rpx;
+  top: 4rpx;
+  text-align: center;
+  border-top-left-radius: 20rpx;
+}
+.kqs_item_left {
+  position: relative;
+  padding: 30rpx;
+  z-index: 11;
+  width: 30%;
+}
+.kqs_item_left .mon {
+  color: #2D9DFB;
+  margin-top: 20rpx;
+}
+.kqs_item_left .mon text:first-child {
+  font-size: 28rpx;
+}
+.kqs_item_left .mon text:last-child {
+  font-weight: bold;
+  font-size: 50rpx;
+}
+.kqs_item_left .menkan {
+  font-size: 24rpx;
+  color: #999999;
+  padding-top: 15rpx;
+}
+.kqs_item_left .left_type {
+  width: 53rpx;
+  height: 17rpx;
+  background: linear-gradient(90deg, #C1E3FF 0%, rgba(233, 245, 255, 0) 100%);
+  border-radius: 24rpx;
+  font-size: 18rpx;
+  color: #2D9DFB;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.kqs_item_right {
+  width: 52%;
+  padding: 20rpx;
+  z-index: 11;
+}
+.kqs_item_right text {
+  display: block;
+}
+.kqs_item_right .right_left_bt {
+  font-size: 28rpx;
+  color: #333333;
+  margin-top: 15rpx;
+}
+.kqs_item_right .right_left_time {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 10rpx;
+}
+.kqs_item_right .right_left_day {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 20rpx;
+}
+.kqs_item_right .right_day {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 10rpx;
+}
+.right_right {
+  margin: 65rpx 30rpx 0 0;
+  z-index: 11;
+}
+.right_right text {
+  width: 128rpx;
+  height: 44rpx;
+  border-radius: 22rpx;
+  border: 1px solid #2D9DFB;
+  font-size: 24rpx;
+  color: #2D9DFB;
+  line-height: 44rpx;
+  text-align: center;
+  display: block;
+}
+

@@ -1,0 +1,1 @@
+<view class="width96"><view><scroll-view class="navheight" scroll-y="{{true}}"><image class="width100" src="{{imgUrl+'bj1.png'}}" mode="widthFix"></image></scroll-view></view><view class="btn"><button data-event-opts="{{[['tap',[['getSelMyselfs']]]]}}" catchtap="__e">立即申请</button></view></view>

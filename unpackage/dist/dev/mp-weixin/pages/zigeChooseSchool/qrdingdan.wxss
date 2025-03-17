@@ -1,0 +1,114 @@
+page {
+  background-color: #f7f7f7;
+}
+.text-qx {
+  border: 1rpx solid #2D9DFB;
+  color: #2D9DFB;
+  width: 200rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  text-align: center;
+  margin: 20rpx 40rpx 30rpx;
+  border-radius: 33rpx;
+}
+.text-qr {
+  background-color: #2D9DFB;
+  color: #fff;
+  width: 200rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  text-align: center;
+  margin: 20rpx 40rpx 30rpx;
+  border-radius: 33rpx;
+}
+.dingdan {
+  border-radius: 20rpx;
+  padding: 10rpx 0 20rpx;
+}
+.tuijian {
+  font-size: 26rpx;
+}
+.text_red {
+  font-size: 18rpx;
+  color: #FF1F28;
+  padding: 0 0 20rpx;
+}
+.text_red2 {
+  font-size: 24rpx;
+  color: #FF1F28;
+}
+.dd_detail {
+  margin-top: 30rpx;
+}
+.dd_detail_topbor {
+  border-top: 1rpx solid #eee;
+}
+.dd_inp {
+  margin-top: 20rpx;
+}
+.dd_inp input {
+  background-color: #F2F2F2;
+  height: 88rpx;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+}
+.dd_img {
+  width: 260rpx;
+  height: 170rpx;
+  overflow: hidden;
+  margin: 30rpx 30rpx 15rpx;
+}
+.cu-bar .action:first-child {
+  padding: 0;
+  margin: 0;
+}
+.dd_texts .dd_bt {
+  font-size: 28rpx;
+  color: #202020;
+  line-height: 38rpx;
+}
+.dd_texts .dd_span {
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 38rpx;
+}
+.dd_texts .dd_mon {
+  font-weight: bold;
+  font-size: 36rpx;
+  color: #FF1F28;
+  line-height: 30rpx;
+  margin-top: 50rpx;
+}
+.bot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20rpx;
+}
+.bot_mon {
+  font-size: 26rpx;
+  color: #202020;
+}
+.bot_redt {
+  font-size: 32rpx;
+  color: #FF1F28;
+}
+.text-gray1 {
+  font-size: 26rpx;
+  color: #999999;
+  padding-left: 20rpx;
+}
+.text-gray2 {
+  font-size: 26rpx;
+  color: #999999;
+  padding-left: 20rpx;
+}
+.bot_btn {
+  width: 220rpx;
+  height: 66rpx;
+  background: #2D9DFB;
+  border-radius: 33rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
+}
+

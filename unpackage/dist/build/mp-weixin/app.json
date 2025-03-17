@@ -1,0 +1,88 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/schooldetail",
+    "pages/index/cgschooldetail",
+    "pages/index/qrdingdan",
+    "pages/index/kaoshizl",
+    "pages/index/kscar",
+    "pages/index/zxddqr",
+    "pages/index/bmxinxi",
+    "pages/index/jybmxinxi",
+    "pages/index/gaokaoguihua",
+    "pages/index/ghdetail",
+    "pages/index/wangke",
+    "pages/index/jmzf",
+    "pages/yikao/yikao",
+    "pages/my/my",
+    "pages/my/kaquan",
+    "pages/my/fwschooldetail",
+    "pages/invoice/manage",
+    "pages/invoice/kpdingdan",
+    "pages/invoice/sqinvoice",
+    "pages/invoice/lookinvoice",
+    "pages/chooseSchool/chooseSchool",
+    "pages/chooseSchool/sc_file",
+    "pages/chooseSchool/fangwen",
+    "pages/chooseSchool/qianming",
+    "pages/chooseSchool/goH5",
+    "pages/chooseSchool/gokaike",
+    "pages/zigeChooseSchool/bmxinxi",
+    "pages/zigeChooseSchool/qrdingdan",
+    "pages/zigeChooseSchool/chooseSchool",
+    "pages/zigeChooseSchool/schooldetail",
+    "pages/my/dingdan",
+    "pages/my/baoming",
+    "pages/my/jiaofei",
+    "pages/my/gkfangan",
+    "pages/my/news",
+    "pages/my/zsbutie",
+    "pages/my/mytuifei",
+    "pages/my/mystudents",
+    "pages/my/moneydetails",
+    "pages/my/addus",
+    "pages/my/goAddus",
+    "pages/my/setting",
+    "pages/login/index",
+    "pages/mychildren/dingdan_detail",
+    "pages/mychildren/shoukuan",
+    "pages/mychildren/tixian",
+    "pages/mychildren/myshouyi",
+    "pages/mychildren/usjieguo",
+    "pages/mychildren/gkfangan_detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#2D9BFB",
+    "backgroundColor": "#eee",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/tab0.png",
+        "selectedIconPath": "/static/tab1.png"
+      },
+      {
+        "pagePath": "pages/yikao/yikao",
+        "text": "易考专区",
+        "iconPath": "/static/tab4.png",
+        "selectedIconPath": "/static/tab5.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/static/tab2.png",
+        "selectedIconPath": "/static/tab3.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

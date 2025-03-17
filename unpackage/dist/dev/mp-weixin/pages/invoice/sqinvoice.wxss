@@ -1,0 +1,118 @@
+page {
+  background-color: #f7f7f7;
+}
+.biaoti {
+  margin-bottom: 30rpx;
+}
+.bgblue {
+  padding: 0 40rpx;
+  background: #E1F1FF;
+  border-radius: 28rpx;
+  border: 1px solid #2D9DFB;
+  color: #2D9DFB;
+  font-size: 28rpx;
+  line-height: 50rpx !important;
+  height: 50rpx !important;
+  min-width: 150rpx;
+  text-align: center;
+}
+.bggrey {
+  padding: 0 40rpx;
+  line-height: 50rpx !important;
+  height: 50rpx !important;
+  background: #F3F1F2;
+  border-radius: 28rpx;
+  font-size: 28rpx;
+  color: #999999;
+  min-width: 150rpx;
+  text-align: center;
+}
+.conbox {
+  border-radius: 20rpx;
+  padding: 20rpx 0;
+  margin: 20rpx auto;
+}
+.cu-form-group .title {
+  min-width: calc(4em + 15px);
+}
+radio {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+.radtext {
+  padding: 0 20rpx;
+}
+.text-red {
+  padding-right: 10rpx;
+}
+.cu-form-group + .cu-form-group {
+  border: none !important;
+}
+.sfzbox {
+  width: 100%;
+}
+.sfz {
+  width: 48%;
+  height: 212rpx;
+  overflow: hidden;
+}
+.dengji {
+  width: 171rpx;
+  height: 243rpx;
+}
+.dengjizp {
+  width: 100%;
+  height: 243rpx;
+  overflow: hidden;
+  position: relative;
+}
+.iconup {
+  color: #fff;
+  background-color: #2D9DFB;
+  width: 42rpx;
+  border-radius: 50%;
+  display: block;
+  font-size: 37rpx;
+  margin: 10rpx auto;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  margin-bottom: 20rpx;
+  padding: 5rpx;
+}
+.dungwei {
+  position: absolute;
+  top: 70rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 243rpx;
+  text-align: center;
+}
+.cu-form-group input {
+  text-align: right !important;
+}
+.btns .btn1 {
+  background: #2D9DFB;
+  border-radius: 36rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 72rpx;
+  position: fixed;
+  bottom: 40rpx;
+  left: 3%;
+}
+.btns .btn2 {
+  background: #fff;
+  border-radius: 36rpx;
+  color: #2D9DFB;
+  border: 1rpx solid #2D9DFB;
+  font-size: 28rpx;
+  line-height: 72rpx;
+  position: fixed;
+  bottom: 20rpx;
+  left: 3%;
+}
+.fromspan {
+  font-size: 24rpx;
+  color: red;
+}
+

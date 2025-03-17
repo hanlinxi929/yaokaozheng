@@ -1,0 +1,40 @@
+
+.box {
+	text-align: center;
+}
+.bt {
+	margin: 50rpx auto 30rpx;
+	font-weight: bold;
+	font-size: 28rpx;
+	display: block;
+	margin: 50rpx auto 20rpx;
+}
+.par {
+	font-size: 40rpx;
+	color: red;
+	display: block;
+	margin: 50rpx auto 20rpx;
+}
+.abtns{
+	padding-bottom: 20rpx;
+}
+.btn_top {
+	background: #2D9DFB;
+	color: #FFFFFF;
+	font-size: 28rpx;
+	width: 90%;
+	margin: 40rpx auto;
+}
+.btn_left {
+	border: 1px solid #2D9DFB;
+	width: 45%;
+	color: #2D9DFB;
+	font-size: 28rpx;
+}
+.btn_right {
+	background: #2D9DFB;
+	color: #FFFFFF;
+	font-size: 28rpx;
+	width: 45%;
+}
+

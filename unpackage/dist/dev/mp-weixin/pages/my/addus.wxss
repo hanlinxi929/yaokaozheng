@@ -1,0 +1,14 @@
+.btn button {
+  width: 96%;
+  margin: 20rpx auto;
+  height: 72rpx;
+  background: #2D9DFB;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  line-height: 72rpx;
+  color: #fff;
+}
+.navheight {
+  height: 90vh;
+}
+

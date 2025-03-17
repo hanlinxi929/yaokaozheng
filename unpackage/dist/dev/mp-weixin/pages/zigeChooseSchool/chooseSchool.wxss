@@ -1,0 +1,58 @@
+page {
+  background-color: #f7f7f7;
+}
+.sysousuo {
+  margin-bottom: 20rpx;
+}
+.listitem {
+  width: 49%;
+  float: left;
+}
+.cu-bar .action:first-child {
+  margin: 0;
+}
+.yhList {
+  height: 81vh;
+  overflow: auto;
+}
+.wid {
+  width: 30%;
+}
+.textblue {
+  color: #2D9DFB;
+}
+.didian {
+  width: 31rpx;
+  margin-right: 10rpx;
+}
+.itemimg {
+  width: 320rpx;
+  height: 230rpx;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+  margin: 20rpx auto 0;
+  overflow: hidden;
+}
+.quesheng {
+  text-align: center;
+  line-height: 60rpx;
+}
+.quesheng image {
+  width: 150rpx;
+  margin: 100rpx auto 50rpx;
+}
+.lisettext {
+  width: 320rpx;
+  margin: 0 auto 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 20rpx;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  font-size: 28rpx;
+}
+.texticon {
+  width: 32rpx;
+  height: 32rpx;
+}
+

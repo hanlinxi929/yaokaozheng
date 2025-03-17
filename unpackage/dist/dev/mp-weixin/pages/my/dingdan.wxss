@@ -1,0 +1,108 @@
+page {
+  background: #f7f7f7;
+}
+.navheight {
+  height: 83vh;
+}
+.nav_items {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 25rpx 20rpx;
+}
+.item_top_left {
+  line-height: 50rpx;
+  /* 显示省略号 */
+  width: 80%;
+  align-items: baseline;
+}
+.yhList {
+  height: 93vh;
+  overflow: auto;
+}
+.bianhao {
+  line-height: 60rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  padding-bottom: 10rpx;
+}
+.top_bt {
+  font-size: 28rpx;
+  color: #333333;
+  padding-left: 10rpx;
+}
+.top_icon {
+  font-size: 32rpx;
+  color: #2D9DFB;
+}
+.toubu {
+  align-items: baseline;
+}
+.item_top_right text {
+  font-size: 28rpx;
+  padding-right: 20rpx;
+}
+.textorange {
+  color: #F98110;
+}
+.textblue {
+  color: #2D9DFB;
+}
+.item_center {
+  background-color: #F4F4F4;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  margin: 20rpx 0;
+}
+.item_center text {
+  font-size: 22rpx;
+  color: #333333;
+  line-height: 50rpx;
+  display: block;
+}
+.item_bottom button {
+  padding: 0 20rpx;
+  height: 56rpx;
+  background: #FFFFFF;
+  border-radius: 28rpx;
+  border: 1px solid #2D9DFB;
+  line-height: 54rpx;
+  color: #2D9DFB;
+  font-size: 28rpx;
+  font-weight: 400;
+  margin: 0 0 0 10rpx;
+}
+.item_bottom .qr {
+  padding: 0 20rpx;
+  height: 56rpx;
+  background: #FFFFFF;
+  border-radius: 28rpx;
+  background: #2D9DFB;
+  line-height: 54rpx;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 400;
+  margin: 0 0 0 10rpx;
+}
+.nav_text {
+  width: 33.3%;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.xz {
+  background-color: #E6F4FF;
+  color: #2D9DFB;
+}
+.btn {
+  background: #2D9DFB;
+  border-radius: 36rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 72rpx;
+  position: fixed;
+  bottom: 20rpx;
+  left: 2%;
+}
+
