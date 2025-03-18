@@ -30,7 +30,7 @@
 			<button class="round btn_right mt_20" v-if="ymtype!=1&&ymtype!=2"
 				@click.stop="$api.toPage('index/bmxinxi?oid='+oid+'&oneId=225&sid='+schooldetail.id)">立即报名</button>
 		</view>
-		<view class="btns width96 flex justify-between" v-if="typename=='高考志愿规划'">
+		<view class="btns width96 flex justify-between" v-else-if="typename=='高考志愿规划'">
 			<view class="right_bottom flex justify-between">
 				<view class="width100rpx flex justify-center align-end">
 					<view  class="pb5" @click='shoucang'>

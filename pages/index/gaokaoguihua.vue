@@ -120,7 +120,7 @@
 				<text>合计：</text>
 				<text class="text-red">￥{{jg}}</text>
 			</view>
-			<button class="btn_right" @click="$api.toPage('index/zxddqr')">咨询</button>
+			<!-- <button class="btn_right" @click="$api.toPage('index/zxddqr')">咨询</button> -->
 			<button class="btn_right" @click="gopay()">立即支付</button>
 		</view>
 		<view class="cu-modal" :class="modalName=='Modal'?'show':''">

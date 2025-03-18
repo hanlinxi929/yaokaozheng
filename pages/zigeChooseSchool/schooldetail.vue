@@ -10,7 +10,7 @@
 					<image :src="baseUrl+schooldetail.schoolHead"></image>
 				</view> -->
 				<view class="con_right margin-left-sm">
-					<view class="right_top flex justify-between">
+					<!-- <view class="right_top flex justify-between">
 						<view class="right_top_text">
 							<text class="text_bt text-white">{{schooldetail.deptName}}{{schooldetail.deptName}}</text>
 							<text class="text_span text-white">{{schooldetail.cityName?schooldetail.cityName:''}}</text>
@@ -20,7 +20,7 @@
 							<text v-if="!yishoucang" class="p_left10 fot-28 text-white">收藏</text>
 							<text v-else class="p_left10 fot-28 text-orange">已收藏</text>
 						</view>
-					</view>
+					</view> -->
 					<view class="right_bottom flex justify-between mt_20">
 						<view class="">
 							<!-- <text class="text_span"
@@ -28,11 +28,11 @@
 							<text class="text_span"
 								:class="yishoucang?'text-gray':'text-white'">招生层次：{{schooldetail.typeName}}</text> -->
 						</view>
-						<view class="flex justify-end align-end">
+						<!-- <view class="flex justify-end align-end">
 							<button class="btn share_friends" open-type="share">
 								<text class="cuIcon-forward" :class="yishoucang?'text-orange':'text-white'"></text>
 							</button>
-						</view>
+						</view> -->
 					</view>
 				</view>
 			</view>
