@@ -14,7 +14,7 @@
 		onLoad(option) {
 			// 构造授权链接
 			const redirectUri = encodeURIComponent('https://www.rzjswy.cn/ht/api/auth/callback')
-			const authUrl = "https://open.weixin.gg.com/connect/oauth2/authorize?appid=wx187b51075d31bed4&redirect_uri=" + redirectUri + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+			const authUrl = "https://open.weixin.gg.com/connect/oauth2/authorize?appid=wx187b51075d31bed4&redirect_uri=" + redirectUri + "&response_type=code&scope=snsapi_userinfo&state=13#wechat_redirect";
 			this.authUrl = authUrl;
 			console.log(this.authUrl)
 		}, 
