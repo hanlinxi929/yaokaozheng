@@ -7,10 +7,13 @@
 					<view class="itemShow bg-white">
 						<view class=" flex justify-start">
 							<view class="checkBox">
-								<checkbox  class='round blue' style="transform:scale(0.6)" :value="item.deptName" :checked="item.checked"/>
+								<checkbox class='round blue' style="transform:scale(0.6)" :value="item.deptName"
+									:checked="item.checked" />
 							</view>
 							<view class="listImg">
-								<image :src="imgUrl+(item.downloadLink.split('.')[1]=='pdf' ? 'zlxq_PDF.png' : 'zlxq_DOC.png')" mode="aspectFill" style="width: 100%; height: 100%;"></image>
+								<image
+									:src="imgUrl+(item.downloadLink.split('.')[1]=='pdf' ? 'zlxq_PDF.png' : 'zlxq_DOC.png')"
+									mode="aspectFill" style="width: 100%; height: 100%;"></image>
 							</view>
 							<view class="itemCont">
 								<view class="itemName">
@@ -22,10 +25,11 @@
 								</view>
 							</view>
 							<view class="listImg" v-if="item.myBuy == 1">
-								<image :src="imgUrl+'zlxq_xz.png'" mode="aspectFill" style="width: 100%; height: 100%;"></image>
+								<image :src="imgUrl+'zlxq_xz.png'" mode="aspectFill" style="width: 100%; height: 100%;">
+								</image>
 							</view>
 						</view>
-						
+
 					</view>
 				</label>
 			</checkbox-group>
@@ -34,13 +38,14 @@
 		<view class="width100 ymbottom bg-white flex justify-between align-center">
 			<checkbox-group @change="changeBook">
 				<label>
-					<checkbox class='round blue' style="transform:scale(0.6)" :checked="allFlag.checked" :value="allFlag.cb" /> 全选
+					<checkbox class='round blue' style="transform:scale(0.6)" :checked="allFlag.checked"
+						:value="allFlag.cb" /> 全选
 				</label>
 			</checkbox-group>
 			<button class="btn_right" @tap="showModal" data-target="Modal">付费下载</button>
 			<!-- <button class="btn_right" @click="$api.toPage('index/zxddqr?carArr='+JSON.stringify(xzArr))">付费下载</button> -->
 		</view>
-		
+
 		<view class="cu-modal" :class="modalName=='Modal'?'show':''">
 			<view class="cu-dialog">
 				<view class="cu-bar bg-white justify-end">
@@ -68,7 +73,7 @@
 	} from "@/common/config.default.js";
 	import {
 		getLearningkszlInfo,
-		getMiniAppPay,
+		getZlAppPay
 	} from "@/api/index.js";
 	export default {
 		data() {
@@ -77,15 +82,14 @@
 					value: 'cb',
 					checked: false
 				},
-				id:'',
-				carArr: [
-				],
-				imgUrl:'',
-				baseUrl:'',
-				xzArr:[],
+				id: '',
+				carArr: [],
+				imgUrl: '',
+				baseUrl: '',
+				xzArr: [],
 				modalName: "",
-				heji:"",
-				zfitem:"",
+				heji: "",
+				zfitem: "",
 			}
 		},
 		onLoad(option) {
@@ -97,37 +101,37 @@
 		onShareAppMessage(res) {
 			var userid = uni.getStorageSync('userid')
 			var that = this
-			var urls =  '/pages/index/index?userid='+ userid
+			var urls = '/pages/index/index?userid=' + userid
 			// 此处的distSource为分享者的部分信息，需要传递给其他人
 			// let distSource = uni.getStorageSync('distSource');
 			return {
 				title: '耀考证',
 				path: urls,
-				imageUrl: this.imgUrl+'loginlogo.png'
+				imageUrl: this.imgUrl + 'loginlogo.png'
 			}
 		},
 		// 转发至朋友圈
 		onShareTimeline(res) {
 			var userid = uni.getStorageSync('userid')
 			var that = this
-			var urls =  '/pages/index/index?userid='+ userid
+			var urls = '/pages/index/index?userid=' + userid
 			// 此处的distSource为分享者的部分信息，需要传递给其他人
 			// let distSource = uni.getStorageSync('distSource');
 			return {
 				title: '耀考证',
 				path: urls,
-				imageUrl: this.imgUrl+'loginlogo.png'
+				imageUrl: this.imgUrl + 'loginlogo.png'
 			}
 		},
 		methods: {
 			showModal(e) {
 				this.modalName = e.currentTarget.dataset.target
-				
+
 				this.heji = 0;
-				for (var i = 0; i < this.xzArr.length; i++){
+				for (var i = 0; i < this.xzArr.length; i++) {
 					console.log(this.heji)
 					console.log(this.xzArr[i].preferentialPrice)
-					
+
 					this.heji = this.heji + this.xzArr[i].preferentialPrice
 				}
 				console.log(this.heji)
@@ -138,14 +142,14 @@
 			async getzlList() {
 				try {
 					const obj = {
-						id:this.id
+						id: this.id
 					};
 					const {
 						data
 					} = await getLearningkszlInfo(obj);
-			
+
 					if (data.code == 200) {
-			
+
 						if (data.data) {
 							this.carArr = data.data
 						}
@@ -154,7 +158,7 @@
 						// this.$api.msg(data.msg)
 					}
 				} catch (e) {
-			
+
 				}
 			},
 			// 全选或者反选 checkbox
@@ -174,7 +178,7 @@
 			checkboxChange(e) {
 				var items = this.carArr,
 					values = e.detail.value;
-					console.log(values);
+				console.log(values);
 				for (var i = 0; i < items.length; i++) {
 					const item = items[i]
 					if (values.includes(item.deptName)) {
@@ -182,7 +186,7 @@
 						this.xzArr.push(item);
 					} else {
 						this.$set(item, 'checked', false)
-						if(this.xzArr.length > 0){
+						if (this.xzArr.length > 0) {
 							this.xzArr = this.xzArr.filter(item1 => item1 == item);
 						}
 					}
@@ -191,18 +195,22 @@
 				let allChecks = this.carArr.length == this.xzArr.length
 				// console.log(allChecks)
 				allChecks ? this.$set(this.allFlag, 'checked', true) : this.$set(this.allFlag, 'checked', false)
-			
+
 			},
 			async submitPay() {
+				let dataArray = this.carArr
+				let checkedIds = dataArray
+					.filter(item => item.checked) // 筛选出选中的元素
+					.map(item => item.id); // 提取id
 				var that = this
 				try {
 					const obj = {
-						id: that.ddid
+						ids: checkedIds
 					};
 					const {
 						data
-					} = await getMiniAppPay(obj);
-			
+					} = await getZlAppPay(obj);
+
 					if (data.code == 200) {
 						this.zfitem = data.data
 						this.wxPay()
@@ -214,7 +222,7 @@
 						this.$api.msg(data.msg)
 					}
 				} catch (e) {
-			
+
 				}
 			},
 			wxPay() { //微信支付
@@ -232,7 +240,7 @@
 					success: (res) => {
 						// 支付成功
 						setTimeout(function() {
-							uni.$emit('isshow',true)
+							uni.$emit('isshow', true)
 							uni.navigateBack({
 								delta: 1
 							});
@@ -245,7 +253,7 @@
 							title: '支付失败',
 							icon: 'none'
 						});
-						
+
 					}
 				});
 			},
@@ -254,10 +262,11 @@
 </script>
 
 <style>
-	page{
+	page {
 		background-color: #f7f7f7;
 	}
-	.text-qx{
+
+	.text-qx {
 		border: 1rpx solid #2D9DFB;
 		color: #2D9DFB;
 		width: 200rpx;
@@ -267,7 +276,8 @@
 		margin: 20rpx 40rpx 30rpx;
 		border-radius: 33rpx;
 	}
-	.text-qr{
+
+	.text-qr {
 		background-color: #2D9DFB;
 		color: #fff;
 		width: 200rpx;
@@ -277,19 +287,23 @@
 		margin: 20rpx 40rpx 30rpx;
 		border-radius: 33rpx;
 	}
-	.listImg{
+
+	.listImg {
 		height: 100rpx;
 		width: 90rpx;
 		margin: 0 10rpx;
 	}
-	.itemShow{
-		border-radius:20rpx;
+
+	.itemShow {
+		border-radius: 20rpx;
 		padding: 30rpx 20rpx;
 		margin-bottom: 20rpx;
 	}
-	.zljg{
+
+	.zljg {
 		/* padding-left: 50rpx; */
 	}
+
 	.btn_right {
 		background: #2D9DFB;
 		color: #FFFFFF;
@@ -297,13 +311,15 @@
 		width: 70%;
 		margin: 0;
 	}
-	.ymbottom{
+
+	.ymbottom {
 		position: fixed;
 		bottom: 0;
 		left: 0;
 		padding: 20rpx;
 	}
-	.zlbot{
+
+	.zlbot {
 		padding-top: 30rpx;
 	}
 </style>

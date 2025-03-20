@@ -15,7 +15,7 @@ page {
   position: fixed;
   bottom: 0;
   left: 0;
-  padding-bottom: 40rpx;
+  padding-bottom: 20rpx;
 }
 .miaosha {
   border-radius: 20rpx;
@@ -104,6 +104,7 @@ page {
   color: #FFFFFF;
   font-size: 28rpx;
   width: 45%;
+  margin: 10rpx;
 }
 .nav_bt {
   height: 63rpx;
@@ -200,5 +201,27 @@ page {
 }
 .tg-main .tg-main-item:last-child {
   border: 0;
+}
+.right_bottom .pb5 {
+  padding-bottom: 10rpx;
+}
+.right_bottom .width100rpx {
+  width: 100rpx;
+  position: relative;
+}
+.right_bottom .text-blue {
+  color: #2D9BFB;
+}
+.right_bottom button {
+  position: absolute;
+  bottom: 39rpx;
+}
+.right_bottom text {
+  font-size: 24rpx;
+}
+.right_bottom image {
+  margin: 0 auto;
+  height: 40rpx;
+  width: 40rpx;
 }
 

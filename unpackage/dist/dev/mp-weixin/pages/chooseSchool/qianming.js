@@ -148,7 +148,7 @@ var _configDefault = __webpack_require__(/*! @/common/config.default.js */ 60);
 var _my = __webpack_require__(/*! @/api/my.js */ 124);
 var pickerColor = function pickerColor() {
   __webpack_require__.e(/*! require.ensure | components/helang-pickerColor/helang-pickerColor */ "components/helang-pickerColor/helang-pickerColor").then((function () {
-    return resolve(__webpack_require__(/*! @/components/helang-pickerColor/helang-pickerColor.vue */ 467));
+    return resolve(__webpack_require__(/*! @/components/helang-pickerColor/helang-pickerColor.vue */ 473));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

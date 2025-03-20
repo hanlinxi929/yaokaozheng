@@ -193,10 +193,26 @@ var _vue = __webpack_require__(/*! vue */ 25);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
       imgUrl: '',
+      baseUrl: '',
       yiPay: false,
       dianji: 0,
       TabCur: 0,
@@ -238,7 +254,9 @@ var _default = {
         name: '开课流程',
         htmlId: 'lc',
         height: 0
-      }]
+      }],
+      fenxiang: false,
+      yishoucang: false
     };
   },
   onLoad: function onLoad(option) {
@@ -257,7 +275,7 @@ var _default = {
     return {
       title: this.schooldetail.deptName,
       path: urls,
-      imageUrl: this.baseUrl + this.schooldetail.shcoolInfo
+      imageUrl: this.baseUrl + this.schooldetail.courseProcess
     };
   },
   // 转发至朋友圈
@@ -269,35 +287,42 @@ var _default = {
     return {
       title: this.schooldetail.deptName,
       path: urls,
-      imageUrl: this.baseUrl + this.schooldetail.shcoolInfo
+      imageUrl: this.baseUrl + this.schooldetail.courseProcess
     };
   },
   methods: {
-    getDetail: function getDetail() {
+    shoucang: function shoucang() {
+      this.yishoucang = !this.yishoucang;
+      if (this.yishoucang) {
+        this.getAdd();
+      } else {
+        this.getDel();
+      }
+    },
+    getAdd: function getAdd() {
       var _this = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var that, obj, _yield$getWangkeInfo, data;
+        var laiyuan, obj, _yield$getAddCollect, data;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                that = _this;
+                laiyuan = 2;
                 _context.prev = 1;
-                obj = {};
+                obj = {
+                  sourceId: _this.sid,
+                  images: _this.schooldetail.shcoolInfo,
+                  type: laiyuan
+                };
                 _context.next = 5;
-                return (0, _index.getWangkeInfo)(obj);
+                return (0, _index.getAddCollect)(obj);
               case 5:
-                _yield$getWangkeInfo = _context.sent;
-                data = _yield$getWangkeInfo.data;
+                _yield$getAddCollect = _context.sent;
+                data = _yield$getAddCollect.data;
                 if (data.code == 200) {
-                  if (data.data) {
-                    that.schooldetail = data.data;
-                    that.oid = data.data.id;
-                    that.oneId = data.data.parentId;
-                    console.log(that.schooldetail);
-                  }
-                } else {
                   _this.$api.msg(data.msg);
+                } else {
+                  // this.$api.msg(data.msg)
                 }
                 _context.next = 12;
                 break;
@@ -310,6 +335,89 @@ var _default = {
             }
           }
         }, _callee, null, [[1, 10]]);
+      }))();
+    },
+    getDel: function getDel() {
+      var _this2 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        var laiyuan, obj, _yield$getDelCollect, data;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (_this2.oneId == '200') {
+                  laiyuan = '0';
+                } else if (_this2.oneId == '208') {
+                  laiyuan = '1';
+                } else {
+                  laiyuan = '2';
+                }
+                _context2.prev = 1;
+                obj = {
+                  sourceId: _this2.sid,
+                  images: _this2.schooldetail.shcoolInfo,
+                  type: laiyuan
+                };
+                _context2.next = 5;
+                return (0, _index.getDelCollect)(obj);
+              case 5:
+                _yield$getDelCollect = _context2.sent;
+                data = _yield$getDelCollect.data;
+                if (data.code == 200) {
+                  // this.$api.msg(data.msg)
+                } else {
+                  // this.$api.msg(data.msg)
+                }
+                _context2.next = 12;
+                break;
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](1);
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[1, 10]]);
+      }))();
+    },
+    getDetail: function getDetail() {
+      var _this3 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+        var that, obj, _yield$getWangkeInfo, data;
+        return _regenerator.default.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                that = _this3;
+                _context3.prev = 1;
+                obj = {};
+                _context3.next = 5;
+                return (0, _index.getWangkeInfo)(obj);
+              case 5:
+                _yield$getWangkeInfo = _context3.sent;
+                data = _yield$getWangkeInfo.data;
+                if (data.code == 200) {
+                  if (data.data) {
+                    that.schooldetail = data.data;
+                    that.oid = data.data.id;
+                    that.oneId = data.data.parentId;
+                    console.log(that.schooldetail);
+                  }
+                } else {
+                  _this3.$api.msg(data.msg);
+                }
+                _context3.next = 12;
+                break;
+              case 10:
+                _context3.prev = 10;
+                _context3.t0 = _context3["catch"](1);
+              case 12:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[1, 10]]);
       }))();
     }
   }

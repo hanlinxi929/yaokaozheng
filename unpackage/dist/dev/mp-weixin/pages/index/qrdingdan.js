@@ -228,6 +228,10 @@ var _configDefault = __webpack_require__(/*! @/common/config.default.js */ 60);
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -248,7 +252,8 @@ var _default = {
       weizf: false,
       zfitem: "",
       oneId: "",
-      odata: ''
+      odata: '',
+      type: ''
     };
   },
   onLoad: function onLoad(option) {
@@ -258,6 +263,7 @@ var _default = {
     this.sid = option.sid;
     this.ddid = option.ddid;
     this.oneId = option.oneId;
+    this.type = option.type;
     this.odata = JSON.parse(option.datas);
     var odata = JSON.parse(option.datas);
     if (odata) {

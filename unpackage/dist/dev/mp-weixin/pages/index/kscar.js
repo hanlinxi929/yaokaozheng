@@ -102,11 +102,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function ($event) {
-      return _vm.$api.toPage("index/zxddqr")
+  var l0 = _vm.__map(_vm.carArr, function (item, __i0__) {
+    var $orig = _vm.__get_orig(item)
+    var g0 = item.downloadLink.split(".")
+    return {
+      $orig: $orig,
+      g0: g0,
     }
-  }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0,
+      },
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -191,6 +202,34 @@ var _index = __webpack_require__(/*! @/api/index.js */ 67);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -201,7 +240,11 @@ var _default = {
       id: '',
       carArr: [],
       imgUrl: '',
-      baseUrl: ''
+      baseUrl: '',
+      xzArr: [],
+      modalName: "",
+      heji: "",
+      zfitem: ""
     };
   },
   onLoad: function onLoad(option) {
@@ -236,6 +279,19 @@ var _default = {
     };
   },
   methods: {
+    showModal: function showModal(e) {
+      this.modalName = e.currentTarget.dataset.target;
+      this.heji = 0;
+      for (var i = 0; i < this.xzArr.length; i++) {
+        console.log(this.heji);
+        console.log(this.xzArr[i].preferentialPrice);
+        this.heji = this.heji + this.xzArr[i].preferentialPrice;
+      }
+      console.log(this.heji);
+    },
+    hideModal: function hideModal(e) {
+      this.modalName = null;
+    },
     getzlList: function getzlList() {
       var _this = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
@@ -277,39 +333,128 @@ var _default = {
     // 全选或者反选 checkbox
     changeBook: function changeBook(e) {
       var _this2 = this;
+      console.log(e.detail.value.length);
       if (e.detail.value.length == 0) {
         this.carArr.map(function (item) {
           return _this2.$set(item, 'checked', false);
         });
         this.$set(this.allFlag, 'checked', false);
+        this.xzArr = [];
       } else {
         this.carArr.map(function (item) {
           return _this2.$set(item, 'checked', true);
         });
         this.$set(this.allFlag, 'checked', true);
+        this.xzArr = this.carArr;
       }
     },
     // list checkbox
     checkboxChange: function checkboxChange(e) {
+      var _this3 = this;
       var items = this.carArr,
         values = e.detail.value;
-      for (var i = 0, lenI = items.length; i < lenI; ++i) {
+      console.log(values);
+      var _loop = function _loop() {
         var item = items[i];
-        if (values.includes(item.value)) {
-          this.$set(item, 'checked', true);
+        if (values.includes(item.deptName)) {
+          _this3.$set(item, 'checked', true);
+          _this3.xzArr.push(item);
         } else {
-          this.$set(item, 'checked', false);
+          _this3.$set(item, 'checked', false);
+          if (_this3.xzArr.length > 0) {
+            _this3.xzArr = _this3.xzArr.filter(function (item1) {
+              return item1 == item;
+            });
+          }
         }
+      };
+      for (var i = 0; i < items.length; i++) {
+        _loop();
       }
-      //  商品是否全部勾选，判断全选与否状态
-      var offCarArr = [];
-      this.carArr.forEach(function (item) {
-        return item.whether == true ? offCarArr.push(item) : '';
-      });
-      var allChecks = offCarArr.every(function (item) {
-        return item.checked == true;
-      });
+      //商品是否全部勾选，判断全选与否状态
+      var allChecks = this.carArr.length == this.xzArr.length;
+      // console.log(allChecks)
       allChecks ? this.$set(this.allFlag, 'checked', true) : this.$set(this.allFlag, 'checked', false);
+    },
+    submitPay: function submitPay() {
+      var _this4 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        var dataArray, checkedIds, that, obj, _yield$getZlAppPay, data;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                dataArray = _this4.carArr;
+                checkedIds = dataArray.filter(function (item) {
+                  return item.checked;
+                }) // 筛选出选中的元素
+                .map(function (item) {
+                  return item.id;
+                }); // 提取id
+                that = _this4;
+                _context2.prev = 3;
+                obj = {
+                  ids: checkedIds
+                };
+                _context2.next = 7;
+                return (0, _index.getZlAppPay)(obj);
+              case 7:
+                _yield$getZlAppPay = _context2.sent;
+                data = _yield$getZlAppPay.data;
+                if (data.code == 200) {
+                  _this4.zfitem = data.data;
+                  _this4.wxPay();
+                  // uni.navigateTo({
+                  // 	url: '/pages/index/jmzf?pay_info=' + encodeURIComponent(JSON.stringify(data
+                  // 		.data)) + '&price=' + this.heji+'&img='+this.schooldetail.consultingCode
+                  // })
+                } else {
+                  _this4.$api.msg(data.msg);
+                }
+                _context2.next = 14;
+                break;
+              case 12:
+                _context2.prev = 12;
+                _context2.t0 = _context2["catch"](3);
+              case 14:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[3, 12]]);
+      }))();
+    },
+    wxPay: function wxPay() {
+      //微信支付
+      var that = this;
+      var zfitem = JSON.parse(decodeURIComponent(that.zfitem));
+      console.log(zfitem);
+      uni.requestPayment({
+        appId: zfitem.appId,
+        provider: 'wxpay',
+        timeStamp: zfitem.timeStamp,
+        nonceStr: zfitem.nonceStr,
+        package: zfitem.package,
+        signType: zfitem.signType,
+        paySign: zfitem.paySign,
+        success: function success(res) {
+          // 支付成功
+          setTimeout(function () {
+            uni.$emit('isshow', true);
+            uni.navigateBack({
+              delta: 1
+            });
+          }, 500);
+        },
+        fail: function fail(err) {
+          console.log(err);
+          // 支付失败
+          uni.showToast({
+            title: '支付失败',
+            icon: 'none'
+          });
+        }
+      });
     }
   }
 };

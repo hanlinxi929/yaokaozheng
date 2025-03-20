@@ -253,7 +253,7 @@
 		position: fixed;
 		bottom: 0;
 		left: 0;
-		padding-bottom: 40rpx;
+		padding-bottom: 20rpx;
 	}
 
 	.miaosha {

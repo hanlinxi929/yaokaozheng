@@ -10853,7 +10853,32 @@ function detachConfig(url, data, config) {
 
 /***/ }),
 
-/***/ 479:
+/***/ 48:
+/*!******************************************************************************!*\
+  !*** F:/uniapp微信小程序fang/uni_modules/u-ajax/js_sdk/lib/helpers/isCallback.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isCallback;
+/**
+ * 判断参数是否含有回调参数 success / fail / complete 之一
+ * @param {string} field 参数的 Key 值字符串
+ * @returns {boolean} 返回判断值
+ */
+function isCallback(field) {
+  return ['success', 'fail', 'complete'].includes(field);
+}
+
+/***/ }),
+
+/***/ 485:
 /*!*******************************************************!*\
   !*** F:/uniapp微信小程序fang/components/mp-html/parser.js ***!
   \*******************************************************/
@@ -11774,31 +11799,6 @@ module.exports = parser;
 
 /***/ }),
 
-/***/ 48:
-/*!******************************************************************************!*\
-  !*** F:/uniapp微信小程序fang/uni_modules/u-ajax/js_sdk/lib/helpers/isCallback.js ***!
-  \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = isCallback;
-/**
- * 判断参数是否含有回调参数 success / fail / complete 之一
- * @param {string} field 参数的 Key 值字符串
- * @returns {boolean} 返回判断值
- */
-function isCallback(field) {
-  return ['success', 'fail', 'complete'].includes(field);
-}
-
-/***/ }),
-
 /***/ 49:
 /*!*****************************************************************!*\
   !*** F:/uniapp微信小程序fang/uni_modules/u-ajax/js_sdk/lib/utils.js ***!
@@ -12395,7 +12395,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/inte
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getzgUpReferralCode = exports.getzgTwoType = exports.getzgQualificationList = exports.getzgDetailInfo = exports.getzgAddOrder = exports.getwkxx = exports.gethomeSetting = exports.gethomePagegetInfo = exports.getXlType = exports.getWangldlist = exports.getWangkeInfo = exports.getWanggetInfo = exports.getWangAdd = exports.getVoluntaryTestadd = exports.getVoluntaryTest = exports.getUpReferralCode = exports.getTwoType = exports.getSxlist = exports.getSignUpadd = exports.getSignUpAdd = exports.getQualificationList = exports.getMiniAppPay = exports.getLearningkszlInfo = exports.getLearningkszl = exports.getInfo = exports.getDetailInfo = exports.getDelCollect = exports.getCollectByUserId = exports.getCityList = exports.getCity = exports.getAddOrder = exports.getAddCollect = void 0;
+exports.getzgUpReferralCode = exports.getzgTwoType = exports.getzgQualificationList = exports.getzgDetailInfo = exports.getzgAddOrder = exports.getwkxx = exports.gethomeSetting = exports.gethomePagegetInfo = exports.getZlAppPay = exports.getXlType = exports.getWangldlist = exports.getWangkeInfo = exports.getWanggetInfo = exports.getWangAdd = exports.getVoluntaryTestadd = exports.getVoluntaryTest = exports.getUpReferralCode = exports.getTwoType = exports.getSxlist = exports.getSignUpadd = exports.getSignUpAdd = exports.getQualificationList = exports.getMiniAppPay = exports.getLearningkszlInfo = exports.getLearningkszl = exports.getInfo = exports.getDetailInfo = exports.getDelCollect = exports.getCollectByUserId = exports.getCityList = exports.getCity = exports.getAddOrder = exports.getAddCollect = void 0;
 var _ajax = _interopRequireDefault(__webpack_require__(/*! ../common/ajax.js */ 33));
 var _configDefault = __webpack_require__(/*! @/common/config.default.js */ 60);
 /**
@@ -12594,7 +12594,13 @@ exports.getLearningkszlInfo = getLearningkszlInfo;
 var getVoluntaryTestadd = function getVoluntaryTestadd(data) {
   return (0, _ajax.default)("hs/api/VoluntaryTest/add", data);
 };
+
+//下载支付
 exports.getVoluntaryTestadd = getVoluntaryTestadd;
+var getZlAppPay = function getZlAppPay(data) {
+  return (0, _ajax.default)("hs/api/wxPay/ZlAppPay", data);
+};
+exports.getZlAppPay = getZlAppPay;
 
 /***/ }),
 

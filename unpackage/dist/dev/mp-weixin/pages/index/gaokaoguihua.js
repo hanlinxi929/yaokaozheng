@@ -102,11 +102,6 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function ($event) {
-      return _vm.$api.toPage("index/zxddqr")
-    }
-  }
 }
 var recyclableRender = false
 var staticRenderFns = []

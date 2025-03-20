@@ -102,6 +102,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.carArr, function (item, __i0__) {
+    var $orig = _vm.__get_orig(item)
+    var g0 = item.downloadLink.split(".")
+    return {
+      $orig: $orig,
+      g0: g0,
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0,
+      },
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -168,19 +184,7 @@ var _default = {
   data: function data() {
     return {
       imgUrl: "",
-      carArr: [{
-        value: 'USA',
-        name: '摩根财团',
-        price: '25.22',
-        whether: true,
-        src: '/static/img00.png'
-      }, {
-        value: 'CHN',
-        name: '中国高校之殇',
-        price: '5.00',
-        whether: true,
-        src: '/static/img00.png'
-      }]
+      carArr: []
     };
   },
   onShareAppMessage: function onShareAppMessage(res) {
@@ -210,6 +214,9 @@ var _default = {
   },
   onLoad: function onLoad(option) {
     this.imgUrl = _configDefault.imgUrl;
+    this.carArr = JSON.parse(option.carArr);
+    console.log("11111111");
+    console.log(this.carArr);
   },
   methods: {
     downloadwj: function downloadwj() {

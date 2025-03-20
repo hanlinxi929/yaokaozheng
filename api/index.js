@@ -104,3 +104,6 @@ export const getLearningkszlInfo= (data) => $request("hs/api/Learning/kszlInfo",
 
 //新增高考规划
 export const getVoluntaryTestadd= (data) => $request("hs/api/VoluntaryTest/add", data);
+
+//下载支付
+export const getZlAppPay= (data) => $request("hs/api/wxPay/ZlAppPay", data);

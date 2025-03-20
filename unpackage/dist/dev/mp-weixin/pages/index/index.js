@@ -452,6 +452,7 @@ var _default = {
     };
   },
   onLoad: function onLoad(option) {
+    // this.getGzhOpenId();
     this.imgUrl = _configDefault.imgUrl;
     this.baseUrl = _configDefault.baseUrl;
     this.getlunbo();
@@ -466,38 +467,54 @@ var _default = {
     InputBlur: function InputBlur(e) {
       this.InputBottom = 0;
     },
-    getlunbo: function getlunbo() {
+    getGzhOpenId: function getGzhOpenId() {
       var _this = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var obj, _yield$gethomeSetting, data;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                obj = {};
-                _context.next = 4;
-                return (0, _index.gethomeSetting)(obj);
-              case 4:
-                _yield$gethomeSetting = _context.sent;
-                data = _yield$gethomeSetting.data;
-                if (data.code == 200) {
-                  _this.swiperList = data.data;
-                } else {
-                  console.log(data);
-                  // this.$api.msg(data.msg)
-                }
-                _context.next = 11;
-                break;
-              case 9:
-                _context.prev = 9;
-                _context.t0 = _context["catch"](0);
-              case 11:
+                _this.$api.toPage('index/webView');
+              case 1:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 9]]);
+        }, _callee);
+      }))();
+    },
+    getlunbo: function getlunbo() {
+      var _this2 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        var obj, _yield$gethomeSetting, data;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                obj = {};
+                _context2.next = 4;
+                return (0, _index.gethomeSetting)(obj);
+              case 4:
+                _yield$gethomeSetting = _context2.sent;
+                data = _yield$gethomeSetting.data;
+                if (data.code == 200) {
+                  _this2.swiperList = data.data;
+                } else {
+                  console.log(data);
+                  // this.$api.msg(data.msg)
+                }
+                _context2.next = 11;
+                break;
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](0);
+              case 11:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 9]]);
       }))();
     },
     //验证跳转

@@ -255,7 +255,8 @@ var _default = {
       pay_info: '',
       wkid: '',
       jg: '',
-      gwjg: ''
+      gwjg: '',
+      lastname: ''
     };
   },
   onLoad: function onLoad(option) {
@@ -307,7 +308,13 @@ var _default = {
       this.indexid = item.list[item.value].id;
       this.lastid = item.list[item.value].id;
       this.lasttext = item.list[item.value].deptName;
+      this.lastname = item.list[item.value].ancestors;
       this.getWangldlists(this.indexid);
+      console.log(this.onexl);
+      // let checkedNames = this.onexl.map(v => v.list[v.value]);
+      // let checkedNameitem = checkedNames.map(v => v.deptName);
+      // let resultString = checkedNameitem.join(',');
+      // this.itemname = resultString
     },
     gokaikes: function gokaikes() {
       var _this = this;
@@ -331,6 +338,15 @@ var _default = {
                     _this.username = data.data.name;
                     _this.phone = data.data.tel;
                     _this.wkid = data.data.id;
+                    _this.onexl = data.data.jhLists;
+                    _this.lastname = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data.data.jhLists.length - 1].value].ancestors;
+                    _this.lastid = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data.data.jhLists.length - 1].value].id;
+                    _this.lasttext = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data.data.jhLists.length - 1].value].deptName;
+
+                    // this.onexl.push({
+                    // 	value: '',
+                    // 	list: data.data.deptList,
+                    // })
                   }
                 } else {
                   _this.$api.msg(data.msg);
@@ -435,7 +451,8 @@ var _default = {
                   subjectId: that.lastid,
                   //具体科目
                   subject: that.lasttext,
-                  actualPayment: _this3.jg
+                  actualPayment: that.jg,
+                  allSubject: that.lastname
                 };
                 _context3.next = 5;
                 return (0, _index.getWangAdd)(obj);
