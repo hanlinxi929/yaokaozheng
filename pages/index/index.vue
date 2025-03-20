@@ -307,7 +307,7 @@
 					}
 				],
 				swiperList: [],
-				scrollTop:0
+				scrollTop:0,
 			}
 		},
 		onShareAppMessage(res) {
@@ -336,12 +336,15 @@
 			}
 		},
 		onLoad(option) {
+			this.getGzhOpenId();
 			this.imgUrl = imgUrl
 			this.baseUrl = baseUrl
 			this.getlunbo()
 			if(option.userid){
 				uni.setStorageSync('sjuserid', option.userid);
 			}
+			
+			
 		}, 
 		onPageScroll(e) {
 			this.scrollTop = e.scrollTop
@@ -350,6 +353,9 @@
 			InputBlur(e) {
 				this.InputBottom = 0
 			},
+			async getGzhOpenId(){
+				this.$api.toPage('index/webView');
+			  },
 			async getlunbo(){
 				// gethomeSetting
 				try {

@@ -6,8 +6,14 @@
 				<text>咨询订单</text>
 			</view>
 			<view class="dd_detail dd_detail_topbor flex justify-start align-center">
-				<view class="dd_img">
+				<!-- <view class="dd_img">
 					<image :src="baseUrl+schooldetail.schoolHead" mode="widthFix"></image>
+				</view> -->
+				<view class="dd_img" v-if="schooldetail.type == 0 || schooldetail.type == 1">
+					<image :src="baseUrl+schooldetail.schoolHead" mode="widthFix"></image>
+				</view>
+				<view class="dd_img" v-else-if="schooldetail.type == 2 || schooldetail.type == 3">
+					<image :src="baseUrl+schooldetail.shcoolInfo" mode="widthFix"></image>
 				</view>
 				<view class="dd_texts">
 					<text class="dd_bt block">{{schooldetail.deptName}}</text>

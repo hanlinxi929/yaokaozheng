@@ -303,6 +303,13 @@
 			"style": {
 				"navigationBarTitleText": "高考方案"
 			}
+		},
+		{
+			"path" : "pages/index/webView",
+			"style" : 
+			{
+				"navigationBarTitleText" : "授权"
+			}
 		}
 	],
 	"globalStyle": {

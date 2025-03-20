@@ -6,7 +6,22 @@
 				<image :src="baseUrl+schooldetail.courseProcess" mode="widthFix"></image>
 			</view>
 		</scroll-view>
-		<view class="btns width100 bg-white flex justify-between">
+		<view class="btns width96 flex justify-between">
+			<view class="right_bottom flex justify-between">
+				<view class="width100rpx flex justify-center align-end">
+					<view class="pb5" @click='shoucang'>
+						<image :src="yishoucang?imgUrl+'lanxing.png':imgUrl+'heixing.png'" mode="widthFix"></image>
+						<text v-if="yishoucang" class="p_left10 fot-28 text-blue">已收藏</text>
+						<text v-else class="text-block">收藏</text>
+					</view>
+				</view>
+				<view class="pb5 flex justify-center align-end width100rpx">
+					<button class="btn share_friends" open-type="share">
+						<image :src="fenxiang?imgUrl+'lanfenxiang.png':imgUrl+'fenxiang.png'" mode="widthFix"></image>
+					</button>
+					<text :class="!fenxiang?'text-block':'text-blue'">{{fenxiang?'已分享':'分享'}}</text>
+				</view>
+			</view>
 			<button class="round btn_right mt_20"
 				@click.stop="$api.toPage('chooseSchool/gokaike?oid='+oid + '&jg=' + schooldetail
 							.preferentialPrice + '&gwjg=' + schooldetail.officialWebsitePrice)">去开课</button>
@@ -49,6 +64,7 @@
 		data() {
 			return {
 				imgUrl: '',
+				baseUrl:'',
 				yiPay: false,
 				dianji: 0,
 				TabCur: 0,
@@ -93,7 +109,9 @@
 						htmlId: 'lc',
 						height: 0
 					}
-				]
+				],
+				fenxiang:false,
+				yishoucang: false,
 			}
 		},
 		onLoad(option) {
@@ -112,7 +130,7 @@
 			return {
 				title: this.schooldetail.deptName,
 				path: urls,
-				imageUrl: this.baseUrl + this.schooldetail.shcoolInfo
+				imageUrl: this.baseUrl + this.schooldetail.courseProcess
 			}
 		},
 		// 转发至朋友圈
@@ -124,10 +142,68 @@
 			return {
 				title: this.schooldetail.deptName,
 				path: urls,
-				imageUrl: this.baseUrl + this.schooldetail.shcoolInfo
+				imageUrl: this.baseUrl + this.schooldetail.courseProcess
 			}
 		},
 		methods: {
+			shoucang() {
+				this.yishoucang = !this.yishoucang
+				if (this.yishoucang) {
+					this.getAdd()
+				} else {
+					this.getDel()
+				}
+			},
+			async getAdd() {
+				var laiyuan = 2;
+			
+				try {
+					const obj = {
+						sourceId: this.sid,
+						images: this.schooldetail.shcoolInfo,
+						type: laiyuan
+					};
+					const {
+						data
+					} = await getAddCollect(obj);
+			
+					if (data.code == 200) {
+						this.$api.msg(data.msg)
+					} else {
+						// this.$api.msg(data.msg)
+					}
+				} catch (e) {
+			
+				}
+			},
+			async getDel() {
+				var laiyuan;
+				if (this.oneId == '200') {
+					laiyuan = '0'
+				} else if (this.oneId == '208') {
+					laiyuan = '1'
+				} else {
+					laiyuan = '2'
+				}
+				try {
+					const obj = {
+						sourceId: this.sid,
+						images: this.schooldetail.shcoolInfo,
+						type: laiyuan
+					};
+					const {
+						data
+					} = await getDelCollect(obj);
+			
+					if (data.code == 200) {
+						// this.$api.msg(data.msg)
+					} else {
+						// this.$api.msg(data.msg)
+					}
+				} catch (e) {
+			
+				}
+			},
 			async getDetail() {
 				var that = this
 				try {
@@ -283,6 +359,10 @@
 		color: #FFFFFF;
 		font-size: 28rpx;
 		width: 45%;
+		
+		// height: 80rpx;
+		// line-height: 80rpx;
+		margin: 10rpx;
 	}
 
 	.nav_bt {
@@ -402,6 +482,30 @@
 			&:last-child {
 				border: 0;
 			}
+		}
+	}
+	.right_bottom{
+		.pb5{ 
+			padding-bottom: 10rpx;
+		}
+		.width100rpx{
+			width: 100rpx;
+			position: relative;
+		}
+		.text-blue{
+			color: #2D9BFB;
+		}
+		button{
+			position: absolute;
+			bottom: 39rpx;
+		}
+		text{
+			font-size: 24rpx;
+		}
+		image{
+			margin: 0 auto;
+			height: 40rpx;
+			width: 40rpx;
 		}
 	}
 </style>

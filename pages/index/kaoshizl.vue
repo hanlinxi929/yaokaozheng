@@ -1,13 +1,13 @@
 <template>
 	<view>
-		<view class="cu-bar search sysousuo width96 mt_10">
+		<!-- <view class="cu-bar search sysousuo width96 mt_10">
 			<view class="cu-bar search width100">
 				<view class="search-form round width100"><text class="cuIcon-search"></text><input
 						:adjust-position="false" type="text" placeholder="请输入搜索关键词" confirm-type="search"
 						:data-event-opts="[['focus',[['InputFocus',['$event']]]],['blur',[['InputBlur',['$event']]]]]"
 						bindfocus="__e" bindblur="__e" /></view>
 			</view>
-		</view>
+		</view> -->
 		<view class="mews bg-white">
 			<view class="mews_items flex justify-between width96" v-for="(item,index) in zlList" :key="index"
 				@click="$api.toPage('index/kscar?id='+item.id)">

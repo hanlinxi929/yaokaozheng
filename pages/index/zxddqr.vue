@@ -4,17 +4,17 @@
 		<view class="itemShow bg-white" v-for="item in carArr" :key="item.value" @click="downloadwj()">
 			<view class="flex justify-start"> 
 				<view class="listImg">
-					<image :src="item.src" mode="aspectFill" style="width: 100%; height: 100%;"></image>
+					<image :src="imgUrl+(item.downloadLink.split('.')[1]=='pdf' ? 'zlxq_PDF.png' : 'zlxq_DOC.png')" mode="aspectFill" style="width: 100%; height: 100%;"></image>
 				</view>
 				<view class="itemCont">
 					<view class="itemName">
-						{{item.name}}
+						{{item.deptName}}
 					</view>
 				</view>
 			</view>
 			<view class="flex justify-between width96 zlbot">
 				<text class="zljg">资料价格：</text>
-				<text class="text-red">￥100.00</text>
+				<text class="text-red">￥{{item.preferentialPrice}}</text>
 			</view>
 		</view>
 	</view>
@@ -28,21 +28,7 @@
 		data() {
 			return {
 				imgUrl:"",
-				carArr: [{
-						value: 'USA',
-						name: '摩根财团',
-						price: '25.22',
-						whether: true,
-						src: '/static/img00.png'
-					},
-					{
-						value: 'CHN',
-						name: '中国高校之殇',
-						price: '5.00',
-						whether: true,
-						src: '/static/img00.png'
-					}
-				]
+				carArr: []
 			}
 		},
 		onShareAppMessage(res) {
@@ -72,6 +58,9 @@
 		},
 		onLoad(option) {
 			this.imgUrl = imgUrl
+			this.carArr = JSON.parse(option.carArr)
+			console.log("11111111")
+			console.log(this.carArr)
 		},
 		methods: {
 			downloadwj(){
