@@ -336,7 +336,7 @@
 			}
 		},
 		onLoad(option) {
-			// this.getGzhOpenId();
+			this.getGzhOpenId();
 			this.imgUrl = imgUrl
 			this.baseUrl = baseUrl
 			this.getlunbo()
