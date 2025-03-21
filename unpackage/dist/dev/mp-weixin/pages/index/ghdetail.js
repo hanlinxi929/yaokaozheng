@@ -503,12 +503,12 @@ var _default = {
                 _yield$getAddOrder = _context3.sent;
                 data = _yield$getAddOrder.data;
                 if (data.code == 200) {
-                  if (_this3.oneId == '223') {
-                    _this3.$api.toPage('index/gaokaoguihua?sid=' + that.schooldetail.id + '&jg=' + that.schooldetail.consultingFee);
-                  } else {
-                    _this3.$api.toPage('index/qrdingdan?oid=' + that.oid + '&sid=' + that.schooldetail.id + '&ddid=' + data.data.id + '&oneId=' + that.oneId + '&datas=' + JSON.stringify(data.data));
-                  }
+                  // if (this.oneId == '223') {
+                  // 	this.$api.toPage('index/gaokaoguihua?sid=' + that.schooldetail.id + '&jg=' + that
+                  // 		.schooldetail.consultingFee)
+                  // } 
                   // this.$api.msg(data.msg)
+                  _this3.$api.toPage('index/qrdingdan?oid=' + that.oid + '&sid=' + that.schooldetail.id + '&ddid=' + data.data.id + '&oneId=' + that.oneId + '&datas=' + JSON.stringify(data.data));
                 } else {
                   _this3.$api.msg(data.msg);
                 }

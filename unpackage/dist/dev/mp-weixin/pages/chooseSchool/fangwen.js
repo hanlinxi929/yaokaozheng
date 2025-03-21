@@ -102,25 +102,15 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function ($event, item) {
-      var _temp = arguments[arguments.length - 1].currentTarget.dataset,
-        _temp2 = _temp.eventParams || _temp["event-params"],
-        item = _temp2.item
-      var _temp, _temp2
-      $event.stopPropagation()
-      return _vm.$api.toPage(
-        "my/fwschooldetail?sid=" +
-          item.id +
-          "&sourceId=" +
-          item.sourceId +
-          "&TabCur=" +
-          _vm.TabCur +
-          "&type=" +
-          item.type
-      )
+  var g0 = _vm.schoolList.length
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        g0: g0,
+      },
     }
-  }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -165,7 +155,11 @@ var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 38));
 var _configDefault = __webpack_require__(/*! @/common/config.default.js */ 60);
+var _my = __webpack_require__(/*! @/api/my.js */ 124);
 var _index = __webpack_require__(/*! @/api/index.js */ 67);
+//
+//
+//
 //
 //
 //
@@ -256,6 +250,57 @@ var _default = {
     this.baseUrl = _configDefault.baseUrl;
   },
   methods: {
+    tochild: function tochild(id, oneId, twoId) {
+      if (twoId == '276' || twoId == '277' || twoId == '227' || twoId == '278' || twoId == '279' || twoId == '280' || twoId == '281' || twoId == '275' || twoId == '211' || twoId == '224') {
+        this.$api.toPage('index/ghdetail?sid=' + id + '&oneId=' + oneId + '&oid=' + twoId);
+      } else if (twoId == '238') {
+        this.$api.toPage('index/kscar?sid=' + id + '&oneId=' + oneId + '&oid=' + twoId);
+      } else if (twoId == '237') {
+        this.$api.toPage('index/wangke?id=' + id + '&oneId=' + oneId + '&oid=' + twoId);
+      } else {
+        this.$api.toPage('index/schooldetail?sid=' + id + '&oid=' + twoId + '&oneId=' + oneId);
+      }
+    },
+    getdetail: function getdetail(sourceId) {
+      var _this = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var that, obj, _yield$getCollectInfo, data;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                that = _this;
+                _context.prev = 1;
+                obj = {
+                  sourceId: sourceId,
+                  state: _this.xzid,
+                  type: 0
+                };
+                _context.next = 5;
+                return (0, _my.getCollectInfoDetail)(obj);
+              case 5:
+                _yield$getCollectInfo = _context.sent;
+                data = _yield$getCollectInfo.data;
+                if (data.code == 200) {
+                  // this.fpdetail = data.data
+                  _this.tochild(data.data.id, data.data.parentId, jumpId);
+                } else {
+                  console.log(data);
+                  // this.$api.msg(data.msg)
+                }
+                _context.next = 12;
+                break;
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](1);
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 10]]);
+      }))();
+    },
     Reachbottom: function Reachbottom() {
       if (this.hasNext) {
         this.pageNum++;
@@ -268,45 +313,45 @@ var _default = {
       this.getCollectByUserId();
     },
     getCollectByUserId: function getCollectByUserId() {
-      var _this = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+      var _this2 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
         var obj, _yield$_getCollectByU, data;
-        return _regenerator.default.wrap(function _callee$(_context) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _context.prev = 0;
+                _context2.prev = 0;
                 obj = {
-                  state: _this.TabCur,
+                  state: _this2.TabCur,
                   //0-收藏  1-浏览记录
-                  pageNum: _this.pageNum,
+                  pageNum: _this2.pageNum,
                   //页数
-                  pageSize: _this.pageSize //个数
+                  pageSize: _this2.pageSize //个数
                 };
-                _context.next = 4;
+                _context2.next = 4;
                 return (0, _index.getCollectByUserId)(obj);
               case 4:
-                _yield$_getCollectByU = _context.sent;
+                _yield$_getCollectByU = _context2.sent;
                 data = _yield$_getCollectByU.data;
                 if (data.code == 200) {
                   console.log(data);
-                  _this.schoolList = _this.pageNum == 1 ? data.rows : [].concat((0, _toConsumableArray2.default)(_this.schoolList), (0, _toConsumableArray2.default)(data.rows));
-                  _this.hasNext = data.total > data.pageNum;
+                  _this2.schoolList = _this2.pageNum == 1 ? data.rows : [].concat((0, _toConsumableArray2.default)(_this2.schoolList), (0, _toConsumableArray2.default)(data.rows));
+                  _this2.hasNext = data.total > data.pageNum;
                 } else {
                   console.log(data);
-                  _this.$api.msg(data.msg);
+                  _this2.$api.msg(data.msg);
                 }
-                _context.next = 11;
+                _context2.next = 11;
                 break;
               case 9:
-                _context.prev = 9;
-                _context.t0 = _context["catch"](0);
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](0);
               case 11:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, null, [[0, 9]]);
+        }, _callee2, null, [[0, 9]]);
       }))();
     }
   }

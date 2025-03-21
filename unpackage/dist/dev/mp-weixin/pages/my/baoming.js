@@ -102,6 +102,15 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var g0 = _vm.fpdetail.length
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        g0: g0,
+      },
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -141,6 +150,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _configDefault = __webpack_require__(/*! @/common/config.default.js */ 60);
+//
+//
+//
+//
 //
 //
 //
@@ -174,8 +188,12 @@ var _default = {
     return {
       TabCur: 0,
       scrollLeft: 0,
-      fpdetail: []
+      fpdetail: [],
+      imgUrl: ''
     };
+  },
+  onLoad: function onLoad() {
+    this.imgUrl = _configDefault.imgUrl;
   },
   methods: {
     tabSelect: function tabSelect(e) {

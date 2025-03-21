@@ -33,7 +33,7 @@
 		<view class="btns width96 flex justify-between" v-else-if="typename=='高考志愿规划'">
 			<view class="right_bottom flex justify-between">
 				<view class="width100rpx flex justify-center align-end">
-					<view  class="pb5" @click='shoucang'>
+					<view class="pb5" @click='shoucang'>
 						<image :src="yishoucang?imgUrl+'lanxing.png':imgUrl+'heixing.png'" mode="widthFix"></image>
 						<text v-if="yishoucang" class="p_left10 fot-28 text-blue">已收藏</text>
 						<text v-else class="text-block">收藏</text>
@@ -161,7 +161,7 @@
 					}
 				],
 				oid: '',
-				fenxiang:false,
+				fenxiang: false,
 				schooldetail: '',
 				typename: '',
 				ymtype: '',
@@ -173,7 +173,7 @@
 		onShareAppMessage(res) {
 			// uni.setStorageSync('token','');
 			var that = this
-			that.fenxiang=true
+			that.fenxiang = true
 			var urls = '/pages/index/ghdetail?type=' + this.ymtype + '&oneId=' + this.oneId + '&id=' + this.oid +
 				'&name=' + this.typename + '&userid=' + uni.getStorageSync('userid')
 			// 此处的distSource为分享者的部分信息，需要传递给其他人
@@ -187,7 +187,7 @@
 		// 转发至朋友圈
 		onShareTimeline(res) {
 			var that = this
-			that.fenxiang=true
+			that.fenxiang = true
 			var urls = '/pages/index/ghdetail?type=' + this.ymtype + '&oneId=' + this.oneId + '&id=' + this.oid +
 				'&name=' + this.typename + '&userid=' + uni.getStorageSync('userid')
 			// 此处的distSource为分享者的部分信息，需要传递给其他人
@@ -304,15 +304,14 @@
 					} = await getAddOrder(obj);
 
 					if (data.code == 200) {
-						if (this.oneId == '223') {
-							this.$api.toPage('index/gaokaoguihua?sid=' + that.schooldetail.id + '&jg=' + that
-								.schooldetail.consultingFee)
-						} else {
-							this.$api.toPage('index/qrdingdan?oid=' + that.oid + '&sid=' + that.schooldetail.id +
-								'&ddid=' + data.data.id + '&oneId=' + that.oneId + '&datas=' + JSON.stringify(data
-									.data))
-						}
+						// if (this.oneId == '223') {
+						// 	this.$api.toPage('index/gaokaoguihua?sid=' + that.schooldetail.id + '&jg=' + that
+						// 		.schooldetail.consultingFee)
+						// } 
 						// this.$api.msg(data.msg)
+						this.$api.toPage('index/qrdingdan?oid=' + that.oid + '&sid=' + that.schooldetail.id +
+							'&ddid=' + data.data.id + '&oneId=' + that.oneId + '&datas=' + JSON.stringify(data
+								.data))
 					} else {
 						this.$api.msg(data.msg)
 					}
@@ -612,26 +611,31 @@
 		border-radius: 20rpx;
 		padding: 30rpx 0;
 	}
-	
-	.right_bottom{
-		.pb5{ 
+
+	.right_bottom {
+		.pb5 {
 			padding-bottom: 10rpx;
 		}
-		.width100rpx{
+
+		.width100rpx {
 			width: 100rpx;
 			position: relative;
 		}
-		.text-blue{
+
+		.text-blue {
 			color: #2D9BFB;
 		}
-		button{
+
+		button {
 			position: absolute;
 			bottom: 39rpx;
 		}
-		text{
+
+		text {
 			font-size: 24rpx;
 		}
-		image{
+
+		image {
 			margin: 0 auto 15rpx;
 			height: 40rpx;
 			width: 40rpx;

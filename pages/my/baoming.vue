@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="navs width96">
+		<view class="navs width96" v-if="fpdetail.length">
 			<scroll-view class="navheight" scroll-y>
 				<view class="nav_items width100 mt_20" v-for="(item,index) in fpdetail" :key="index">
 					<view class="item_top flex justify-between align-center">
@@ -23,17 +23,29 @@
 				</view>
 			</scroll-view>
 		</view>
+		<view v-else class="e-width quesheng">
+			<image :src="imgUrl+'zanwu.png'" mode="widthFix"></image>
+			<text>暂无内容</text>
+		</view>
 	</view>
 </template>
 
 <script>
+	import {
+		imgUrl,
+		baseUrl
+	} from "@/common/config.default.js";
 	export default {
 		data() {
 			return {
 				TabCur: 0,
 				scrollLeft: 0,
-				fpdetail: []
+				fpdetail: [],
+				imgUrl:''
 			};
+		},
+		onLoad() {
+		    this.imgUrl = imgUrl	
 		},
 		methods: {
 			tabSelect(e) {

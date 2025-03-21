@@ -12395,7 +12395,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/inte
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getzgUpReferralCode = exports.getzgTwoType = exports.getzgQualificationList = exports.getzgDetailInfo = exports.getzgAddOrder = exports.getwkxx = exports.gethomeSetting = exports.gethomePagegetInfo = exports.getZlAppPay = exports.getXlType = exports.getWangldlist = exports.getWangkeInfo = exports.getWanggetInfo = exports.getWangAdd = exports.getVoluntaryTestadd = exports.getVoluntaryTest = exports.getUpReferralCode = exports.getTwoType = exports.getSxlist = exports.getSignUpadd = exports.getSignUpAdd = exports.getQualificationList = exports.getMiniAppPay = exports.getLearningkszlInfo = exports.getLearningkszl = exports.getInfo = exports.getDetailInfo = exports.getDelCollect = exports.getCollectByUserId = exports.getCityList = exports.getCity = exports.getAddOrder = exports.getAddCollect = void 0;
+exports.getzgUpReferralCode = exports.getzgTwoType = exports.getzgQualificationList = exports.getzgDetailInfo = exports.getzgAddOrder = exports.getwkxx = exports.gethomeSetting = exports.gethomePagegetInfo = exports.getZlAppPay = exports.getXlType = exports.getWangldlist = exports.getWangkeInfo = exports.getWanggetInfo = exports.getWangAdd = exports.getVoluntaryTestinfo = exports.getVoluntaryTestadd = exports.getVoluntaryTest = exports.getUpReferralCode = exports.getTwoType = exports.getSxlist = exports.getSignUpadd = exports.getSignUpAdd = exports.getQualificationList = exports.getMiniAppPay = exports.getLearningkszlInfo = exports.getLearningkszl = exports.getInfo = exports.getDetailInfo = exports.getDelCollect = exports.getCollectByUserId = exports.getCityList = exports.getCity = exports.getAddOrder = exports.getAddCollect = void 0;
 var _ajax = _interopRequireDefault(__webpack_require__(/*! ../common/ajax.js */ 33));
 var _configDefault = __webpack_require__(/*! @/common/config.default.js */ 60);
 /**
@@ -12541,8 +12541,14 @@ var getSignUpadd = function getSignUpadd(data) {
   return (0, _ajax.default)("hs/api/SignUp/add", data);
 };
 
-//wangke详情
+//高考规划是否有未支付订单
 exports.getSignUpadd = getSignUpadd;
+var getVoluntaryTestinfo = function getVoluntaryTestinfo(data) {
+  return (0, _ajax.default)("hs/api/VoluntaryTest/info", data);
+};
+
+//wangke详情
+exports.getVoluntaryTestinfo = getVoluntaryTestinfo;
 var getWangkeInfo = function getWangkeInfo(data) {
   return (0, _ajax.default)("hs/api/Learning/info", data);
 };

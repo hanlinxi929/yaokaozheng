@@ -77,6 +77,8 @@ export const getVoluntaryTest= (data) => $request("hs/api/VoluntaryTest/getCitys
 //报名-新增
 export const getSignUpadd= (data) => $request("hs/api/SignUp/add", data);
 
+//高考规划是否有未支付订单
+export const getVoluntaryTestinfo= (data) => $request("hs/api/VoluntaryTest/info", data);
 
 //wangke详情
 export const getWangkeInfo= (data) => $request("hs/api/Learning/info", data);

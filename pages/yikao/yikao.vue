@@ -182,7 +182,7 @@
 					} = await getykInfo(obj);
 					if (data.code == 200) {
 						// this.fpdetail = data.data
-						this.tochild(data.data.id,data.data.parentId,data.data.jumpId)
+						this.tochild(data.data.id,data.data.parentId,jumpId)
 					} else {
 						console.log(data)
 						// this.$api.msg(data.msg)

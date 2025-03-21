@@ -332,7 +332,7 @@ var _default = {
                 data = _yield$getykInfo.data;
                 if (data.code == 200) {
                   // this.fpdetail = data.data
-                  _this.tochild(data.data.id, data.data.parentId, data.data.jumpId);
+                  _this.tochild(data.data.id, data.data.parentId, jumpId);
                 } else {
                   console.log(data);
                   // this.$api.msg(data.msg)

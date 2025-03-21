@@ -8,10 +8,9 @@
 				</view>
 			</scroll-view>
 		</view>
-		<view class="lists width96">
+		<view class="lists width96" v-if="schoolList.length">
 			<scroll-view scroll-y @scrolltolower='Reachbottom' class="yhList">
-				<view class="listitem" v-for="(item,index) in schoolList" :key="index"
-					@click.stop="$api.toPage('my/fwschooldetail?sid='+item.id+'&sourceId='+item.sourceId+'&TabCur='+TabCur+'&type='+item.type)">
+				<view class="listitem" v-for="(item,index) in schoolList" :key="index" @click="getdetail(item.sourceId)">
 					<view class="itemimg bg-white">
 						<image :src="baseUrl+item.images" mode="widthFix"></image>
 					</view>
@@ -24,6 +23,10 @@
 				</view>
 			</scroll-view>
 		</view>
+		<view v-else class="e-width quesheng">
+			<image :src="imgUrl+'zanwu.png'" mode="widthFix"></image>
+			<text>暂无内容</text>
+		</view>
 	</view>
 </template>
 
@@ -32,6 +35,9 @@
 		imgUrl,
 		baseUrl
 	} from "@/common/config.default.js";
+	import {
+		getCollectInfoDetail
+	} from "@/api/my.js";
 	import {
 		getCollectByUserId
 	} from "@/api/index.js";
@@ -99,6 +105,42 @@
 			this.baseUrl = baseUrl
 		},
 		methods: {
+			tochild(id, oneId, twoId) {
+				if (twoId == '276' || twoId == '277' || twoId == '227' || twoId == '278' || twoId == '279' || twoId ==
+					'280' || twoId == '281' || twoId == '275' || twoId == '211' || twoId == '224') {
+					this.$api.toPage('index/ghdetail?sid=' + id + '&oneId=' + oneId + '&oid=' + twoId)
+				} else if (twoId == '238') {
+					this.$api.toPage('index/kscar?sid=' + id + '&oneId=' + oneId + '&oid=' + twoId)
+				} else if (twoId == '237') {
+					this.$api.toPage('index/wangke?id=' + id + '&oneId=' + oneId + '&oid=' + twoId)
+				} else {
+					this.$api.toPage('index/schooldetail?sid=' + id + '&oid=' + twoId + '&oneId=' + oneId)
+				}
+			
+			},
+			async getdetail(sourceId) {
+			
+				var that = this
+				try {
+					const obj = {
+						sourceId:sourceId,
+						state: this.xzid,
+						type:0
+					};
+					const {
+						data
+					} = await getCollectInfoDetail(obj);
+					if (data.code == 200) {
+						// this.fpdetail = data.data
+						this.tochild(data.data.id,data.data.parentId,jumpId)
+					} else {
+						console.log(data)
+						// this.$api.msg(data.msg)
+					}
+				} catch (e) {
+			
+				}
+			},
 			Reachbottom() {
 				if (this.hasNext) {
 					this.pageNum++;

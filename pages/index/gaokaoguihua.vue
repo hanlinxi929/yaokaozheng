@@ -152,13 +152,17 @@
 		getCityList,
 		getXlType,
 		getVoluntaryTestadd,
-		getzgUpReferralCode
+		getzgUpReferralCode,
+		getVoluntaryTestinfo,
+		getWangAdd,
+		getMiniAppPay
 	} from "@/api/index.js";
 	export default {
 
 		data() {
 			return {
 				fwindex: 0,
+				lastname: '',
 				tuijianmas: false,
 				tuijianma: '',
 				resultString: '',
@@ -180,6 +184,7 @@
 				shengao: "",
 				lastid: '',
 				lasttext: '',
+				ancestors:"",
 				rules: {
 					gkzf: [{
 						rule: /^.{2,18}$/,
@@ -204,8 +209,9 @@
 				},
 				noClick: true,
 				indexid: "",
+				gkid:'',
 				indexs: '',
-				zfitem:'',
+				zfitem: '',
 				focusclass: {
 					username: false
 				},
@@ -255,6 +261,7 @@
 			console.log(option.jg)
 			this.getCityLists()
 			this.getSxlistXuezhi(option.sid)
+			this.getVoluntaryTestinfos()
 		},
 		onShareAppMessage(res) {
 			var userid = uni.getStorageSync('userid')
@@ -282,6 +289,61 @@
 			}
 		},
 		methods: {
+			async getVoluntaryTestinfos() {
+				var that = this
+				try {
+					const obj = {
+
+					};
+					const {
+						data
+					} = await getVoluntaryTestinfo(obj);
+
+					if (data.code == 200) {
+						if (data.data) {
+							this.cityid = data.data.cityId
+							this.cityName = data.data.cityName
+							this.resultStringe = data.data.subject
+							this.gkzf = data.data.fraction
+							this.wc = data.data.place
+							this.name = data.data.name
+							this.radio = data.data.sex=='男' ? 'C' : 'D'
+							this.shengao = data.data.height
+							this.dkcj = data.data.singleSubjectScore
+							this.imgList = data.data.transcript
+							this.gkid =data.data.id
+							this.ancestors = data.data.ancestors
+							for(var i=0;i<this.cityList.length;i++){
+								if(this.cityList[i].nodeCode==data.data.cityId){
+									this.gkindex = i
+								}
+							}
+							
+							var xzitemkm = data.data.subject.split(',')
+
+							for(var i=0;i<this.checkbox.length;i++){
+								for(var j=0;j<xzitemkm.length;j++){
+									if(this.checkbox[i].name==xzitemkm[j]){
+										this.checkbox[i].checked = true
+									}
+								}
+							}
+							this.onexl = data.data.jhLists
+							this.lastname = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data
+								.data.jhLists.length-1].value].ancestors
+							this.lastid = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data
+								.data.jhLists.length-1].value].id
+							this.lasttext = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data
+								.data.jhLists.length-1].value].deptName
+						}
+					} else {
+						this.tuijianmas = false
+						this.$api.msg(data.msg)
+					}
+				} catch (e) {
+
+				}
+			},
 			// 取消推荐
 			qxGetUpReferralCode() {
 				this.tuijianma = ''
@@ -399,6 +461,7 @@
 			async gosubmit() {
 				try {
 					const obj = {
+						id:this.gkid,
 						cityId: this.cityid,
 						cityName: this.cityName,
 						subject: this.resultString,
@@ -410,6 +473,9 @@
 						careerPath: '',
 						singleSubjectScore: this.dkcj,
 						transcript: this.imgList,
+						serviceClassId: this.lastid, //服务班级ID  多级联动最后一个
+						serviceClass: this.lasttext, //服务班级名称
+						allSubject: this.lastname, //中的全路径
 						referralCode: this.tuijianma ? this.tuijianma : ''
 					};
 					const {
@@ -421,10 +487,32 @@
 						// setTimeout(() => {
 						// 	uni.navigateBack()
 						// }, 2000)
-						this.zfitem = data.data
-						this.wxPay()
+						this.submitPay(data.msg)
+						// this.wxPay()
 					} else {
 						console.log(data)
+						this.$api.msg(data.msg)
+					}
+				} catch (e) {
+
+				}
+			},
+			async submitPay(ddid) {
+				var that = this
+				try {
+					const obj = {
+						id: ddid
+					};
+					const {
+						data
+					} = await getMiniAppPay(obj);
+
+					if (data.code == 200) {
+						this.zfitem = data.data
+
+						this.pay_info = data.data
+						this.wxPay()
+					} else {
 						this.$api.msg(data.msg)
 					}
 				} catch (e) {
@@ -446,7 +534,7 @@
 					success: (res) => {
 						// 支付成功
 						setTimeout(function() {
-							uni.$emit('isshow',true)
+							uni.$emit('isshow', true)
 							uni.navigateBack({
 								delta: 1
 							});
@@ -459,7 +547,7 @@
 							title: '支付失败',
 							icon: 'none'
 						});
-						
+
 					}
 				});
 			},
@@ -548,6 +636,8 @@
 				this.indexid = item.list[item.value].id
 				this.lastid = item.list[item.value].id
 				this.lasttext = item.list[item.value].deptName
+				this.lastname = item.list[item.value].ancestors
+				console.log(this.lastname)
 				this.getSxlistXuezhi(this.indexid)
 			},
 			//提交

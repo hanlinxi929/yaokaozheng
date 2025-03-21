@@ -309,6 +309,7 @@ var _default = {
       this.lastid = item.list[item.value].id;
       this.lasttext = item.list[item.value].deptName;
       this.lastname = item.list[item.value].ancestors;
+      console.log(this.lastname);
       this.getWangldlists(this.indexid);
       console.log(this.onexl);
       // let checkedNames = this.onexl.map(v => v.list[v.value]);
@@ -342,7 +343,7 @@ var _default = {
                     _this.lastname = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data.data.jhLists.length - 1].value].ancestors;
                     _this.lastid = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data.data.jhLists.length - 1].value].id;
                     _this.lasttext = data.data.jhLists[data.data.jhLists.length - 1].list[data.data.jhLists[data.data.jhLists.length - 1].value].deptName;
-
+                    console.log(_this.lastname);
                     // this.onexl.push({
                     // 	value: '',
                     // 	list: data.data.deptList,
