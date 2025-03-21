@@ -354,6 +354,7 @@
 				this.InputBottom = 0
 			},
 			async getGzhOpenId(){
+				// console.log("1111111")
 				this.$api.toPage('index/webView');
 			  },
 			async getlunbo(){

@@ -35,7 +35,8 @@ export default {
 
     // 处理授权回调消息
     handleMessage(event) {
-		console.log("111111")
+		console.log(event);
+		console.log("111111");
 		// 返回上一页或跳转到主页面
 		this.$router.go(-1); // 返回上一页
       // const openid = event.data.openid; // 获取回调中的openid
