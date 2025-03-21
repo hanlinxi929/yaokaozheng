@@ -178,21 +178,27 @@
 			checkboxChange(e) {
 				var items = this.carArr,
 					values = e.detail.value;
-				console.log(values);
+					
+				if(values.length == 0){
+					this.xzArr = [];
+				}
 				for (var i = 0; i < items.length; i++) {
 					const item = items[i]
+					
 					if (values.includes(item.deptName)) {
 						this.$set(item, 'checked', true)
-						this.xzArr.push(item);
+						if (!this.xzArr.includes(item)) {
+							this.xzArr.push(item);
+						}
 					} else {
 						this.$set(item, 'checked', false)
-						if (this.xzArr.length > 0) {
+						if (this.xzArr.includes(item)) {
 							this.xzArr = this.xzArr.filter(item1 => item1 == item);
 						}
 					}
 				}
 				//商品是否全部勾选，判断全选与否状态
-				let allChecks = this.carArr.length == this.xzArr.length
+				let allChecks = this.carArr.length == this.xzArr.length;
 				// console.log(allChecks)
 				allChecks ? this.$set(this.allFlag, 'checked', true) : this.$set(this.allFlag, 'checked', false)
 
